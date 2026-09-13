@@ -1,0 +1,399 @@
+/* ============================================
+   BASE (reset, header, menu de 3 pontinhos, botão do WhatsApp)
+   Esse bloco é repetido em todos os CSS de página,
+   como pedido — não há um CSS principal compartilhado.
+   ============================================ */
+:root {
+    --rose: #cf9d92;
+    --rose-light: #e3bcb2;
+    --sage: #8b957f;
+    --sage-light: #a7b096;
+    --bg: #0a0a0a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 22px;
+}
+
+.icon-link {
+    color: #fff;
+    display: flex;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+}
+
+.icon-link:hover {
+    opacity: 1;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    opacity: 0.8;
+    padding-bottom: 4px;
+    transition: opacity 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+}
+
+.nav-links a.active-link {
+    color: var(--rose-light);
+    opacity: 1;
+}
+
+.nav-links a.active-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    background: var(--rose);
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 56px;
+    height: 56px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    z-index: 100;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08);
+}
+
+/* Responsivo: cabeçalho e botão flutuante em telas pequenas */
+@media (max-width: 480px) {
+    header {
+        padding: 16px 18px;
+    }
+
+    .logo {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+
+    .icon-link svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links a {
+        font-size: 0.68rem;
+        letter-spacing: 0.4px;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .whatsapp-float svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Breakpoint intermediário (tablets e telas médias) para o header
+   nao pular direto do tamanho desktop para o mobile */
+@media (max-width: 900px) {
+    header {
+        padding: 18px 28px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 640px) {
+    header {
+        padding: 16px 20px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .header-right {
+        gap: 14px;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+
+    .nav-links a {
+        font-size: 0.72rem;
+        letter-spacing: 0.6px;
+    }
+}
+
+/* Telas muito pequenas (celulares antigos/estreitos) */
+@media (max-width: 360px) {
+    header {
+        padding: 14px 14px;
+    }
+
+    .logo {
+        font-size: 13px;
+    }
+
+    .header-right {
+        gap: 8px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.6rem;
+        letter-spacing: 0.2px;
+    }
+
+    .icon-link svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ============================================
+   BOTÕES (compartilhados: agenda / secundário)
+   ============================================ */
+.btn-agenda,
+.btn-secundario {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: all 0.3s;
+    letter-spacing: 0.3px;
+}
+
+.btn-agenda {
+    background-color: #fff;
+    color: #000;
+}
+
+.btn-agenda:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+.btn-secundario {
+    color: #fff;
+    background: transparent;
+}
+
+.btn-secundario:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+@media (max-width: 480px) {
+    .btn-agenda,
+    .btn-secundario {
+        padding: 14px 24px;
+        font-size: 0.92rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ============================================
+   Animação de entrada (fade + slide, leve)
+   ============================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* ============================================
+   PÁGINA DE VÍDEOS
+   ============================================ */
+.videos-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 170px 60px 120px;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.videos-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(60% 45% at 50% 0%, rgba(139, 149, 127, 0.16), transparent 60%),
+        radial-gradient(60% 45% at 50% 100%, rgba(207, 157, 146, 0.10), transparent 60%),
+        var(--bg);
+}
+
+.videos-page h1 {
+    font-size: clamp(1.8rem, 4vw + 0.8rem, 2.5rem);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+}
+
+.videos-page-sub {
+    font-size: 1.1rem;
+    opacity: 0.75;
+    margin-bottom: 60px;
+}
+
+.videos-grid-page {
+    margin-bottom: 60px;
+}
+
+.videos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video-wrapper {
+    flex: 1 1 300px;
+    max-width: 360px;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.video-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.videos-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+@media (max-width: 600px) {
+    .videos-page {
+        padding: 120px 20px 80px;
+    }
+
+    .videos-page-sub {
+        margin-bottom: 40px;
+    }
+
+    .videos-grid {
+        gap: 18px;
+    }
+}

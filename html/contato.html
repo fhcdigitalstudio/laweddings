@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - LA WEDDINGS</title>
+    <link rel="stylesheet" href="../css/contato.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="../index.html">LA WEDDINGS</a>
+        </div>
+
+        <div class="header-right">
+            <nav class="nav-links">
+                <a href="sobre.html">SOBRE</a>
+                <a href="videos.html">VÍDEOS</a>
+                <a href="contato.html" class="active-link">CONTATO</a>
+            </nav>
+            <a href="https://www.instagram.com/laweddings__" target="_blank" rel="noopener" class="icon-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+            </a>
+            <a href="mailto:laweddings.voz@gmail.com" class="icon-link" aria-label="E-mail">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Banner -->
+        <section class="contato-hero" style="background-image: url('../midia/fotos/luiza.jpeg');">
+            <div class="contato-hero-overlay"></div>
+            <div class="contato-hero-content">
+                <span class="kicker">Fale com a gente</span>
+                <h1>Vamos criar a trilha sonora do seu casamento</h1>
+                <p>Conta pra gente a data, o local e o clima que você imagina — a resposta chega rapidinho no WhatsApp.</p>
+            </div>
+        </section>
+
+        <!-- Canais de contato -->
+        <section class="contato-canais">
+            <a href="https://wa.me/5511972045559?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20shows%20para%20casamento"
+               target="_blank" rel="noopener" class="canal-card whatsapp reveal">
+                <div class="canal-icone">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.4-1.37a9.9 9.9 0 004.64 1.14h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2zm5.87 14.02c-.25.7-1.24 1.28-2.03 1.45-.55.11-1.26.2-3.65-.78-3.06-1.26-5.03-4.36-5.18-4.56-.15-.2-1.24-1.65-1.24-3.15s.78-2.23 1.06-2.53c.27-.3.6-.37.8-.37h.58c.19 0 .43-.07.68.51.25.6.85 2.05.92 2.2.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.3.75 1.24 1.62 2.01 1.12.99 2.05 1.31 2.36 1.46.3.15.48.13.66-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.27.1 1.72.81 2.01.96.3.15.5.22.57.35.07.13.07.75-.18 1.45z"/></svg>
+                </div>
+                <h3>WhatsApp</h3>
+                <p>Resposta mais rápida — orçamento e disponibilidade de datas.</p>
+                <span class="valor">(11) 97204-5559</span>
+            </a>
+
+            <a href="mailto:laweddings.voz@gmail.com" class="canal-card email reveal">
+                <div class="canal-icone">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
+                </div>
+                <h3>E-mail</h3>
+                <p>Para propostas mais detalhadas e envio de contratos.</p>
+                <span class="valor">laweddings.voz@gmail.com</span>
+            </a>
+
+            <a href="https://www.instagram.com/laweddings__" target="_blank" rel="noopener" class="canal-card instagram reveal">
+                <div class="canal-icone">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+                </div>
+                <h3>Instagram</h3>
+                <p>Bastidores, covers e shows anteriores.</p>
+                <span class="valor">@laweddings</span>
+            </a>
+        </section>
+
+        <!-- Formulário -->
+        <section class="orcamento-section">
+            <div class="section-heading reveal">
+                <h2>Solicite seu orçamento</h2>
+                <p>Preencha os campos abaixo e enviaremos direto para o nosso WhatsApp — sem burocracia, sem formulário perdido em e-mail.</p>
+            </div>
+
+            <form class="orcamento-form reveal" id="form-orcamento">
+                <div class="form-row">
+                    <div class="campo">
+                        <label for="nome">Seu nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Como podemos te chamar?" required>
+                    </div>
+                    <div class="campo">
+                        <label for="data-evento">Data do casamento</label>
+                        <input type="date" id="data-evento" name="data-evento">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="campo">
+                        <label for="cidade">Cidade / local</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo - SP">
+                    </div>
+                    <div class="campo">
+                        <label for="formato">Formato desejado</label>
+                        <select id="formato" name="formato">
+                            <option value="Ainda não sei">Ainda não sei</option>
+                            <option value="Voz e violão">Voz e violão</option>
+                            <option value="Cerimônia + festa">Cerimônia + festa</option>
+                            <option value="Banda completa">Banda completa</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="mensagem">Conte um pouco sobre o seu casamento</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Estilo do evento, número de convidados, músicas especiais..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-agenda">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.4-1.37a9.9 9.9 0 004.64 1.14h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2zm5.87 14.02c-.25.7-1.24 1.28-2.03 1.45-.55.11-1.26.2-3.65-.78-3.06-1.26-5.03-4.36-5.18-4.56-.15-.2-1.24-1.65-1.24-3.15s.78-2.23 1.06-2.53c.27-.3.6-.37.8-.37h.58c.19 0 .43-.07.68.51.25.6.85 2.05.92 2.2.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.3.75 1.24 1.62 2.01 1.12.99 2.05 1.31 2.36 1.46.3.15.48.13.66-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.27.1 1.72.81 2.01.96.3.15.5.22.57.35.07.13.07.75-.18 1.45z"/></svg>
+                    ENVIAR PELO WHATSAPP
+                </button>
+
+                <p class="form-nota">Ao enviar, abriremos o WhatsApp com sua mensagem pronta — é só conferir e mandar. Nenhum dado é armazenado neste site.</p>
+            </form>
+        </section>
+
+        <!-- Faixa final -->
+        <section class="contato-extra">
+            <div class="extra-card reveal">
+                <h4>Tempo de resposta</h4>
+                <p>Respondemos mensagens em até 24h, geralmente bem mais rápido durante a semana.</p>
+            </div>
+            <div class="extra-card reveal">
+                <h4>Área de atendimento</h4>
+                <p>Baseados em São Paulo, viajamos para casamentos em outras cidades e estados. Veja mais perguntas na <a href="sobre.html">página Sobre</a>.</p>
+            </div>
+        </section>
+    </main>
+
+    <a href="https://wa.me/5511972045559?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20shows%20para%20casamento"
+       target="_blank" rel="noopener" class="whatsapp-float" aria-label="Falar no WhatsApp">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.4-1.37a9.9 9.9 0 004.64 1.14h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2zm5.87 14.02c-.25.7-1.24 1.28-2.03 1.45-.55.11-1.26.2-3.65-.78-3.06-1.26-5.03-4.36-5.18-4.56-.15-.2-1.24-1.65-1.24-3.15s.78-2.23 1.06-2.53c.27-.3.6-.37.8-.37h.58c.19 0 .43-.07.68.51.25.6.85 2.05.92 2.2.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.3.75 1.24 1.62 2.01 1.12.99 2.05 1.31 2.36 1.46.3.15.48.13.66-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.27.1 1.72.81 2.01.96.3.15.5.22.57.35.07.13.07.75-.18 1.45z"/></svg>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

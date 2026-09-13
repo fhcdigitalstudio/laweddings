@@ -1,0 +1,579 @@
+/* ============================================
+   BASE (reset, header, menu de 3 pontinhos, botão do WhatsApp)
+   Esse bloco é repetido em todos os CSS de página,
+   como pedido — não há um CSS principal compartilhado.
+   ============================================ */
+:root {
+    --rose: #cf9d92;
+    --rose-light: #e3bcb2;
+    --sage: #8b957f;
+    --sage-light: #a7b096;
+    --bg: #0a0a0a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 22px;
+}
+
+.icon-link {
+    color: #fff;
+    display: flex;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+}
+
+.icon-link:hover {
+    opacity: 1;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    opacity: 0.8;
+    padding-bottom: 4px;
+    transition: opacity 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+}
+
+.nav-links a.active-link {
+    color: var(--rose-light);
+    opacity: 1;
+}
+
+.nav-links a.active-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    background: var(--rose);
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 56px;
+    height: 56px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    z-index: 100;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08);
+}
+
+/* Responsivo: cabeçalho e botão flutuante em telas pequenas */
+@media (max-width: 480px) {
+    header {
+        padding: 16px 18px;
+    }
+
+    .logo {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+
+    .icon-link svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links a {
+        font-size: 0.68rem;
+        letter-spacing: 0.4px;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .whatsapp-float svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Breakpoint intermediário (tablets e telas médias) para o header
+   nao pular direto do tamanho desktop para o mobile */
+@media (max-width: 900px) {
+    header {
+        padding: 18px 28px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 640px) {
+    header {
+        padding: 16px 20px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .header-right {
+        gap: 14px;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+
+    .nav-links a {
+        font-size: 0.72rem;
+        letter-spacing: 0.6px;
+    }
+}
+
+/* Telas muito pequenas (celulares antigos/estreitos) */
+@media (max-width: 360px) {
+    header {
+        padding: 14px 14px;
+    }
+
+    .logo {
+        font-size: 13px;
+    }
+
+    .header-right {
+        gap: 8px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.6rem;
+        letter-spacing: 0.2px;
+    }
+
+    .icon-link svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ============================================
+   BOTÕES (compartilhados: agenda / secundário)
+   ============================================ */
+.btn-agenda,
+.btn-secundario {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: all 0.3s;
+    letter-spacing: 0.3px;
+}
+
+.btn-agenda {
+    background-color: #fff;
+    color: #000;
+}
+
+.btn-agenda:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+.btn-secundario {
+    color: #fff;
+    background: transparent;
+}
+
+.btn-secundario:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+@media (max-width: 480px) {
+    .btn-agenda,
+    .btn-secundario {
+        padding: 14px 24px;
+        font-size: 0.92rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        padding: 0 10px;
+    }
+}
+
+/* ============================================
+   Animação de entrada (fade + slide, leve — usada fora do GSAP)
+   ============================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* ============================================
+   HOME — Seção de Vídeo (Hero)
+   ============================================ */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.75) 100%);
+    pointer-events: none;
+}
+
+.hero-content {
+    z-index: 1;
+    padding: 0 20px;
+    max-width: 900px;
+}
+
+.hero-content h1 {
+    font-size: clamp(1.8rem, 5vw + 0.8rem, 3rem);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    line-height: 1.15;
+}
+
+.hero-content p {
+    font-size: clamp(0.95rem, 2vw + 0.5rem, 1.2rem);
+    margin-bottom: 40px;
+    opacity: 0.92;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        margin-bottom: 14px;
+    }
+
+    .hero-content p {
+        margin-bottom: 30px;
+    }
+}
+
+/* ============================================
+   HOME — Prévia do Sobre
+   ============================================ */
+.sobre-preview {
+    position: relative;
+    padding: 150px 60px;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.sobre-preview .preview-photo-band {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 28%;
+    background-repeat: no-repeat;
+}
+
+.sobre-preview .preview-photo-band::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.86) 48%, rgba(0,0,0,0.55) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 20%, rgba(0,0,0,0.25) 80%, rgba(0,0,0,0.75) 100%);
+}
+
+.sobre-conteudo {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 70px;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.sobre-texto h2 {
+    font-size: clamp(1.8rem, 4vw + 0.8rem, 2.5rem);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.sobre-texto h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--rose);
+    margin-top: 14px;
+}
+
+.sobre-citacao {
+    font-size: clamp(1.15rem, 2vw + 0.6rem, 1.5rem);
+    font-weight: bold;
+    line-height: 1.4;
+    margin-bottom: 25px;
+}
+
+.sobre-texto p {
+    margin-bottom: 20px;
+    line-height: 1.65;
+    opacity: 0.9;
+}
+
+.sobre-tagline {
+    font-style: italic;
+    opacity: 1;
+}
+
+.sobre-texto .btn-secundario {
+    margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+    .sobre-preview {
+        padding: 100px 30px;
+    }
+
+    .sobre-preview .preview-photo-band {
+        background-position: center 20%;
+    }
+
+    .sobre-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .sobre-preview .preview-photo-band::after {
+        background:
+            linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.72) 38%, rgba(0,0,0,0.94) 62%, rgba(0,0,0,0.97) 100%);
+    }
+}
+
+/* ============================================
+   HOME — Seção de Vídeos do YouTube (prévia)
+   ============================================ */
+.videos-section {
+    position: relative;
+    padding: 150px 60px;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.videos-section .preview-photo-band {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 25%;
+    background-repeat: no-repeat;
+}
+
+.videos-section .preview-photo-band::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.88) 100%);
+}
+
+.videos-conteudo {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.videos-section h2 {
+    width: 100%;
+    font-size: clamp(1.6rem, 4vw + 0.8rem, 2.5rem);
+    margin: 0 auto 50px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.videos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video-wrapper {
+    flex: 1 1 300px;
+    max-width: 360px;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.video-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.videos-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/* Responsivo geral da Home em telas pequenas */
+@media (max-width: 600px) {
+    .sobre-preview,
+    .videos-section {
+        padding: 80px 20px;
+    }
+
+    .videos-section h2 {
+        margin-bottom: 34px;
+    }
+
+    .videos-grid {
+        gap: 20px;
+    }
+
+    .videos-cta {
+        margin-top: 34px;
+    }
+}

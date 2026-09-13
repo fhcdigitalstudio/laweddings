@@ -1,0 +1,607 @@
+/* ============================================
+   BASE (reset, header, menu de 3 pontinhos, botão do WhatsApp)
+   Esse bloco é repetido em todos os CSS de página,
+   como pedido — não há um CSS principal compartilhado.
+   ============================================ */
+:root {
+    --rose: #cf9d92;
+    --rose-light: #e3bcb2;
+    --sage: #8b957f;
+    --sage-light: #a7b096;
+    --bg: #0a0a0a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 22px;
+}
+
+.icon-link {
+    color: #fff;
+    display: flex;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+}
+
+.icon-link:hover {
+    opacity: 1;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    opacity: 0.8;
+    padding-bottom: 4px;
+    transition: opacity 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+}
+
+.nav-links a.active-link {
+    color: var(--rose-light);
+    opacity: 1;
+}
+
+.nav-links a.active-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    background: var(--rose);
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 56px;
+    height: 56px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    z-index: 100;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08);
+}
+
+/* Responsivo: cabeçalho e botão flutuante em telas pequenas */
+@media (max-width: 480px) {
+    header {
+        padding: 16px 18px;
+    }
+
+    .logo {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+
+    .icon-link svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links a {
+        font-size: 0.68rem;
+        letter-spacing: 0.4px;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .whatsapp-float svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Breakpoint intermediário (tablets e telas médias) para o header
+   nao pular direto do tamanho desktop para o mobile */
+@media (max-width: 900px) {
+    header {
+        padding: 18px 28px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 640px) {
+    header {
+        padding: 16px 20px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .header-right {
+        gap: 14px;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+
+    .nav-links a {
+        font-size: 0.72rem;
+        letter-spacing: 0.6px;
+    }
+}
+
+/* Telas muito pequenas (celulares antigos/estreitos) */
+@media (max-width: 360px) {
+    header {
+        padding: 14px 14px;
+    }
+
+    .logo {
+        font-size: 13px;
+    }
+
+    .header-right {
+        gap: 8px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.6rem;
+        letter-spacing: 0.2px;
+    }
+
+    .icon-link svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ============================================
+   BOTÕES (compartilhados: agenda / secundário)
+   ============================================ */
+.btn-agenda,
+.btn-secundario {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: all 0.3s;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+}
+
+.btn-agenda {
+    background-color: #fff;
+    color: #000;
+}
+
+.btn-agenda:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+.btn-secundario {
+    color: #fff;
+    background: transparent;
+}
+
+.btn-secundario:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+@media (max-width: 480px) {
+    .btn-agenda,
+    .btn-secundario {
+        padding: 14px 24px;
+        font-size: 0.92rem;
+    }
+}
+
+/* ============================================
+   Animação de entrada (fade + slide, leve)
+   ============================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* ============================================
+   CONTATO — Banner
+   ============================================ */
+.contato-hero {
+    position: relative;
+    min-height: 46vh;
+    min-height: 46svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center 25%;
+    padding: 150px 30px 70px;
+}
+
+.contato-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.5) 45%, rgba(10,10,10,0.97) 100%);
+}
+
+.contato-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+}
+
+.contato-hero-content .kicker {
+    display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose-light);
+    margin-bottom: 16px;
+}
+
+.contato-hero-content h1 {
+    font-size: clamp(1.7rem, 5vw + 0.6rem, 2.5rem);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    letter-spacing: 0.5px;
+}
+
+.contato-hero-content p {
+    font-size: clamp(0.95rem, 2vw + 0.5rem, 1.1rem);
+    opacity: 0.9;
+}
+
+/* ============================================
+   CONTATO — Cards de contato
+   ============================================ */
+.contato-canais {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 90px 40px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+}
+
+.canal-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    padding: 36px 24px;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.03);
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+}
+
+.canal-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(207, 157, 146, 0.55);
+    background: rgba(207, 157, 146, 0.06);
+}
+
+.canal-icone {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.16);
+    flex-shrink: 0;
+}
+
+.canal-icone svg {
+    width: 24px;
+    height: 24px;
+}
+
+.canal-card.whatsapp .canal-icone { color: #25D366; }
+.canal-card.email .canal-icone { color: var(--rose-light); }
+.canal-card.instagram .canal-icone { color: var(--sage-light); }
+
+.canal-card h3 {
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.canal-card p {
+    opacity: 0.75;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.canal-card span.valor {
+    font-weight: bold;
+    opacity: 1;
+}
+
+@media (max-width: 800px) {
+    .contato-canais {
+        grid-template-columns: 1fr;
+        padding: 60px 24px 0;
+        gap: 18px;
+    }
+}
+
+/* ============================================
+   CONTATO — Formulário de orçamento
+   ============================================ */
+.orcamento-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 100px 40px 40px;
+}
+
+.orcamento-section .section-heading {
+    text-align: center;
+    margin-bottom: 46px;
+}
+
+.orcamento-section h2 {
+    font-size: clamp(1.5rem, 3.2vw + 0.6rem, 2.1rem);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.orcamento-section .section-heading p {
+    opacity: 0.75;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.orcamento-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo label {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: #fff;
+    font-size: 0.98rem;
+    font-family: inherit;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.campo select option {
+    background: #111;
+    color: #fff;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: rgba(255,255,255,0.35);
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+    outline: none;
+    border-color: var(--rose);
+    background: rgba(207, 157, 146, 0.06);
+}
+
+.campo textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.orcamento-form .btn-agenda {
+    justify-self: flex-start;
+    margin-top: 8px;
+    border: 2px solid #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+}
+
+.orcamento-form .btn-agenda svg {
+    width: 18px;
+    height: 18px;
+}
+
+.form-nota {
+    font-size: 0.82rem;
+    opacity: 0.55;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .orcamento-section {
+        padding: 70px 22px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .orcamento-form .btn-agenda {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   CONTATO — Faixa final (FAQ / disponibilidade)
+   ============================================ */
+.contato-extra {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px 140px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.extra-card {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 22px;
+}
+
+.extra-card h4 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: var(--rose-light);
+}
+
+.extra-card p {
+    opacity: 0.8;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.extra-card a {
+    color: var(--sage-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+    .contato-extra {
+        grid-template-columns: 1fr;
+        padding: 50px 22px 110px;
+        gap: 34px;
+    }
+}
